@@ -1,0 +1,571 @@
+/* --- VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS --- */
+        :root {
+            --primary-green: #2ecc71; /* Verde Vibrante */
+            --dark-green: #27ae60;    /* Verde Escuro para Hover */
+            --text-black: #333333;    /* Preto Suave */
+            --text-gray: #666666;
+            --bg-white: #ffffff;
+            --bg-light: #f9fbfd;      /* Branco levemente azulado/cinza para contraste */
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-black);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÃO PADRÃO --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        /* --- HEADER E MENU --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            height: 70px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(-15px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 130px;
+            width: auto;
+            margin: -20px 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-black);
+            font-size: 16px;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Menu Mobile Hamburguer */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--text-black);
+        }
+
+        /* --- SEÇÃO HOME (HERO) --- */
+        #home {
+            padding-top: 120px; /* Espaço para o menu fixo */
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-black);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-green);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        .hero-highlight {
+            border-left: 4px solid var(--primary-green);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: var(--text-black);
+            font-weight: 500;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* --- CONTADORES (STATS) --- */
+        .stats-section {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 60px 0;
+            position: relative;
+            margin-top: -40px; /* Sobreposição visual */
+            border-radius: 0 0 20px 20px; /* Borda arredondada apenas embaixo se desejar */
+            margin-bottom: 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 30px;
+        }
+
+        .stat-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        /* --- MISSÃO, VISÃO E VALORES --- */
+        #missao {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-green);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mvv-card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .mvv-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+        }
+
+        .mvv-card i {
+            font-size: 50px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .mvv-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .mvv-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* --- CONSERTOS E SERVIÇOS --- */
+        #consertos {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .repair-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+
+        .repair-intro p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-top: 20px;
+        }
+
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .service-column {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-column h3 {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--primary-green);
+        }
+
+        .check-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .check-list li i {
+            color: var(--primary-green);
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        /* --- CLIENTES --- */
+        .clients-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .clients-title {
+            margin-bottom: 40px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .clients-carousel {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .clients-track {
+            display: flex;
+            animation: scroll-logos 30s linear infinite;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .client-logo {
+            flex-shrink: 0;
+            height: 80px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .client-logo:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll-logos {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* --- CONTATO --- */
+        #contato {
+            padding: 80px 0;
+            background-color: #f4f7f6;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            padding: 50px;
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .contact-details .item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-details i {
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-details p {
+            font-size: 16px;
+        }
+
+        .contact-btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            color: var(--primary-green);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-btn-wa:hover {
+            background-color: #f0fff4;
+            transform: scale(1.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: 0;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        footer span {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text p, .hero-highlight {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-highlight {
+                border-left: none;
+                border-top: 4px solid var(--primary-green);
+                padding-top: 15px;
+                padding-left: 0;
+            }
+
+            .services-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            /* Carrossel mais rápido no mobile */
+            .clients-track {
+                animation: scroll-logos 15s linear infinite;
+            }
+
+            /* Contato responsivo no mobile */
+            .contact-info {
+                padding: 30px 20px;
+            }
+
+            .contact-details p {
+                font-size: 14px;
+                word-break: break-word;
+            }
+
+            .map-container iframe {
+                height: 250px;
+            }
+        }
